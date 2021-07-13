@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose';
-import { UrlSchema } from '../models/urlModel';
+import { UrlSchema, UserDoc } from '../models/urlModel';
 import { Request, Response } from 'express';
 import * as sha256 from 'sha256';
 import * as isUrl from 'is-url';
 
-const Url = mongoose.model('Url', UrlSchema);
+const Url = mongoose.model<UserDoc>('Url', UrlSchema);
 
 export class UrlController {
 

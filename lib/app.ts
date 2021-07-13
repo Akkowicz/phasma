@@ -19,8 +19,8 @@ class App {
     }
 
     private config(): void{
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(express.json());
         this.app.use(express.static('public'));
         config({ path: resolve(__dirname, "../.env") });
         this.mongoUrl = process.env.MONGOURL;
@@ -28,8 +28,7 @@ class App {
     }
 
     private mongoSetup(): void{
-        mongoose.Promise = global.Promise;
-        mongoose.connect(this.mongoUrl, { useNewUrlParser: true });        
+        mongoose.connect(this.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });        
     }
 
 }
