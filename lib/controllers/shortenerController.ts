@@ -9,7 +9,6 @@ const Url = mongoose.model<UserDoc>('Url', UrlSchema);
 export class UrlController {
 
     public getPanel(req: Request, res: Response) {
-        console.log('Test');
         res.render('panel');
     }
 
